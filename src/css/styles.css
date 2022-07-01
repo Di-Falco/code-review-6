@@ -1,3 +1,24 @@
+body {
+  background-image: url('https://cdn.corporatefinanceinstitute.com/assets/national-currency.jpeg');
+  background-size: cover;
+  background-position: top;
+  background-attachment: fixed;
+}
+
+.box {
+  border:2px solid darkgrey;
+  margin: 1%;
+  padding: 4%;
+}
+
+.output-box {
+  border:2px solid darkgrey;
+  margin: 1%;
+  padding: 1%;
+  min-width: 60%;
+  float: right;
+}
+
 h1, h2 {
   text-align: center;
 }
@@ -9,4 +30,8 @@ button {
 
 #error {
   align-self: center;
+}
+
+.jumbotron {
+  margin-top: 2%;
 }

@@ -29,7 +29,6 @@ $(document).ready(function(){
     } else {
 
       let conversion = await Bank.getExchangeRate(currencyFrom, currencyTo, amount);
-      console.log("CONVERSION : ", conversion);
       if (conversion.result) {
         $("#amountTo").text(`${symbols[currencies.indexOf(currencyTo)]} ${(conversion.conversion_result).toFixed(2)}`);
       } else {
@@ -38,7 +37,7 @@ $(document).ready(function(){
 
       // print conversion from the input amount for each currency
       $("#mainCurrencyFrom").text(`Value of 1 ${currencyFrom} in:`);
-      $("#mainCurrencyFrom").append(`<br>`);
+      $("#mainCurrencyFrom").append(`<br><br>`);
       for (let i=0; i<currencies.length; i++) {
         let oneConversion = await Bank.getExchangeRate(currencyFrom, currencies[i], 1);
         $("#mainCurrencyFrom").append(`${currencies[i]}: ${symbols[i]}${(oneConversion.conversion_result).toFixed(2)}<br>`);

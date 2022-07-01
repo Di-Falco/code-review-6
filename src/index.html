@@ -13,29 +13,32 @@
       <br>
       <div class="row justify-content-center">
         <div class="col-9">
-          <h5 id="currencyFromName">Exchange From:</h5>
-          <select type="form-control" id="currencyFrom">
-            <option value="USD">USD $</option>
-            <option value="GBP">UK Pound £</option>
-            <option value="EUR">Euro €</option>
-            <option value="JPY">Yen ￥</option>
-            <option value="KRW">Korean Won ₩</option>
-            <option value="NPR">Nepal Rupee ₨</option>
-            <option value="HYR">Hyrule Rupee ♢</option>
-          </select>
-          <input type="number" id="amountFrom">
-          <h5 id="currencyToName">Exchange To:</h5>
-          <!--<input type="number" id="amountTo">-->
-          <select type="form-control" id="currencyTo">
-            <option value="USD">USD $</option>
-            <option value="GBP">UK Pound £</option>
-            <option value="EUR">Euro €</option>
-            <option value="JPY">Yen ￥</option>
-            <option value="KRW">Korean Won ₩</option>
-            <option value="NPR">Nepal Rupee ₨</option>
-            <option value="HYR">Hyrule Rupee ♢</option>
-          </select>
-          <span id="amountTo"></span>
+          <div class="box">
+            <h5 id="currencyFromName">Exchange From:</h5>
+            <select type="form-control" id="currencyFrom">
+              <option value="USD">USD $</option>
+              <option value="GBP">UK Pound £</option>
+              <option value="EUR">Euro €</option>
+              <option value="JPY">Yen ￥</option>
+              <option value="KRW">Korean Won ₩</option>
+              <option value="NPR">Nepal Rupee ₨</option>
+              <option value="HYR">Hyrule Rupee ♢</option>
+            </select>
+            <input class="output-box" type="number" id="amountFrom">
+          </div>
+          <div class="box">
+            <h5 id="currencyToName">Exchange To:</h5>
+            <select type="form-control" id="currencyTo">
+              <option value="USD">USD $</option>
+              <option value="GBP">UK Pound £</option>
+              <option value="EUR">Euro €</option>
+              <option value="JPY">Yen ￥</option>
+              <option value="KRW">Korean Won ₩</option>
+              <option value="NPR">Nepal Rupee ₨</option>
+              <option value="HYR">Hyrule Rupee ♢</option>
+            </select>
+            <span class="output-box" id="amountTo">$0.00</span>
+          </div> 
         </div>
       </div>
       <button id="exchange">Exchange Value</button>
