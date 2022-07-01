@@ -10,10 +10,17 @@ $(document).ready(function(){
     $("#error").text("");
     const currencies = ["USD", "GBP", "EUR", "JPY", "KRW", "NPR"];
     const symbols = ["$", "£", "€", "￥", "₩", "₨"];
+    const rates = [];
 
     let currencyFrom = $("#currencyFrom").val();
     let currencyTo = $("#currencyTo").val();
     let amount = parseInt($("#amountFrom").val());
+
+    for (let i=0; i<currencies.length; i++) {
+      rates[i] = sessionStorage.setItem(currencies[i], Bank.getExchangeRate(currencyFrom, currencies[i], 1));
+    }
+
+    console.log(rates);
 
     let validCurrenciesFrom = await Bank.getCurrencies(`${currencyFrom}`);
     let validCurrenciesTo = await Bank.getCurrencies(`${currencyTo}`);
@@ -39,8 +46,9 @@ $(document).ready(function(){
       $("#mainCurrencyFrom").text(`Value of 1 ${currencyFrom} in:`);
       $("#mainCurrencyFrom").append(`<br><br>`);
       for (let i=0; i<currencies.length; i++) {
-        let oneConversion = await Bank.getExchangeRate(currencyFrom, currencies[i], 1);
-        $("#mainCurrencyFrom").append(`${currencies[i]}: ${symbols[i]}${(oneConversion.conversion_result).toFixed(2)}<br>`);
+        let oneConversion = 1 * rates[i];
+        console.log(oneConversion);
+        $("#mainCurrencyFrom").append(`${currencies[i]}: ${symbols[i]}${(oneConversion).toFixed(2)}<br>`);
       }
 
     }
