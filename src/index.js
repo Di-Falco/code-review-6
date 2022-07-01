@@ -7,8 +7,9 @@ import Bank from './bank.js';
 $(document).ready(function(){
 
   $("#exchange").click(async function(){
-    const currencies = ["USD", "GBP", "EUR", "JPY", "KRW", "NPR", "ZWD"];
-    const symbols = ["$", "£", "€", "￥", "₩", "₨", "Z$"];
+    $("#error").text("");
+    const currencies = ["USD", "GBP", "EUR", "JPY", "KRW", "NPR"];
+    const symbols = ["$", "£", "€", "￥", "₩", "₨"];
 
     let currencyFrom = $("#currencyFrom").val();
     let currencyTo = $("#currencyTo").val();
@@ -16,24 +17,31 @@ $(document).ready(function(){
 
     let validCurrenciesFrom = await Bank.getCurrencies(`${currencyFrom}`);
     let validCurrenciesTo = await Bank.getCurrencies(`${currencyTo}`);
-    console.log("VALID FROM : ",validCurrenciesFrom);
-    console.log("VALID TO : ",validCurrenciesTo);
 
-    if (!validCurrenciesFrom.result) {
+    if (!Number(amount)) {
+      $("#error").text(`Error: Please input a number value to exchange`);
+    } else if (!validCurrenciesFrom.result) {
       $("#error").text(`Error: ${currencyFrom} is not a supported currency`);
       return 0;
-    }
-    if (!validCurrenciesTo.result) {
+    } else if (!validCurrenciesTo.result) {
       $("#error").text(`Error: ${currencyTo} is not a supported currency`);
       return 0;
     } else {
 
       let conversion = await Bank.getExchangeRate(currencyFrom, currencyTo, amount);
-      console.log("CONVERSION : ",conversion);
+      console.log("CONVERSION : ", conversion);
       if (conversion.result) {
         $("#amountTo").text(`${symbols[currencies.indexOf(currencyTo)]} ${(conversion.conversion_result).toFixed(2)}`);
       } else {
         $("#error").text(`Error: ${conversion}`);
+      }
+
+      // print conversion from the input amount for each currency
+      $("#mainCurrencyFrom").text(`Value of 1 ${currencyFrom} in:`);
+      $("#mainCurrencyFrom").append(`<br>`);
+      for (let i=0; i<currencies.length; i++) {
+        let oneConversion = await Bank.getExchangeRate(currencyFrom, currencies[i], 1);
+        $("#mainCurrencyFrom").append(`${currencies[i]}: ${symbols[i]}${(oneConversion.conversion_result).toFixed(2)}<br>`);
       }
 
     }
