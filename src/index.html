@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <title>Exchange Rates</title>
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Exchange Rates</h1>
+    </div>
+    <div class="jumbotron">
+      <h2>Select a currency to exchange to from USD</h2>
+      <div class="row justify-content-center">
+        <div class="col-5">
+          <h3 id="currencyFromName">USD</h3>
+          <input type="number" id="amountFrom">
+          <select type="form-control" id="currencyFrom">
+            <option value="">$ USD</option>
+            <option>￥ 円</option>
+          </select>
+        </div>
+        <div class="col-5">
+          <h3 id="currencyToName">Yen</h3>
+          <!--<input type="number" id="amountTo">-->
+          <select type="form-control" id="currenctTo">
+            <option>$ USD</option>
+            <option>￥ 円</option>
+          </select>
+        </div>
+      </div>
+      <button id="exchange"></button>
+    </div>
+  </div>
+</body>
+</html>
