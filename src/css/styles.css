@@ -6,3 +6,7 @@ button {
   margin: auto;
   display: block;
 }
+
+#error {
+  align-self: center;
+}

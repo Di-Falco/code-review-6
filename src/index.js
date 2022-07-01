@@ -14,14 +14,29 @@ $(document).ready(function(){
     let currencyTo = $("#currencyTo").val();
     let amount = parseInt($("#amountFrom").val());
 
-    let conversion = await Bank.getExchangeRate(currencyFrom, currencyTo, amount);
-    console.log(conversion);
-    if (conversion.result) {
-      $("#amountTo").text(`${symbols[currencies.indexOf(currencyTo)]} ${(conversion.conversion_result).toFixed(2)}`);
-    } else {
-      $("#amountTo").text(`Error: ${conversion}`);
+    let validCurrenciesFrom = await Bank.getCurrencies(`${currencyFrom}`);
+    let validCurrenciesTo = await Bank.getCurrencies(`${currencyTo}`);
+    console.log("VALID FROM : ",validCurrenciesFrom);
+    console.log("VALID TO : ",validCurrenciesTo);
+
+    if (!validCurrenciesFrom.result) {
+      $("#error").text(`Error: ${currencyFrom} is not a supported currency`);
+      return 0;
     }
-    console.log(conversion);
+    if (!validCurrenciesTo.result) {
+      $("#error").text(`Error: ${currencyTo} is not a supported currency`);
+      return 0;
+    } else {
+
+      let conversion = await Bank.getExchangeRate(currencyFrom, currencyTo, amount);
+      console.log("CONVERSION : ",conversion);
+      if (conversion.result) {
+        $("#amountTo").text(`${symbols[currencies.indexOf(currencyTo)]} ${(conversion.conversion_result).toFixed(2)}`);
+      } else {
+        $("#error").text(`Error: ${conversion}`);
+      }
+
+    }
   });
 
 });
