@@ -3,6 +3,7 @@ body {
   background-size: cover;
   background-position: top;
   background-attachment: fixed;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .box {
@@ -33,5 +34,6 @@ button {
 }
 
 .jumbotron {
+  border: 4px solid darkslategrey;
   margin-top: 2%;
 }

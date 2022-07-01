@@ -21,8 +21,9 @@ async function checkResponse(validCurrency, currency) {
 
 // display the results of converting between selected currencies
 function displayConversion(conversion, currencies, symbols) {
+  console.log(conversion);
   if (conversion.result) {
-    $("#amountTo").text(`${symbols[currencies.indexOf(conversion.base_code)]} ${(conversion.conversion_result).toFixed(2)}`);
+    $("#amountTo").text(`${symbols[currencies.indexOf(conversion.target_code)]} ${(conversion.conversion_result).toFixed(2)}`);
   } else {
     $("#error").text(`Error: ${conversion}`);
   }
