@@ -12,19 +12,24 @@
       <h2>Select currency options from below</h2>
       <br>
       <div class="row justify-content-center">
-        <div class="col-5">
-          <h3 id="currencyFromName">Exchange From:</h3>
+        <div class="col-9">
+          <h5 id="currencyFromName">Exchange From:</h5>
           <select type="form-control" id="currencyFrom">
             <option value="USD">USD $</option>
+            <option value="GBP">UK Pound £</option>
+            <option value="EUR">Euro €</option>
             <option value="JPY">円 ￥</option>
           </select>
           <input type="number" id="amountFrom">
-          <h3 id="currencyToName">Exchange To:</h3>
+          <h5 id="currencyToName">Exchange To:</h5>
           <!--<input type="number" id="amountTo">-->
           <select type="form-control" id="currencyTo">
             <option value="USD">USD $</option>
+            <option value="GBP">UK Pound £</option>
+            <option value="EUR">Euro €</option>
             <option value="JPY">円 ￥</option>
           </select>
+          <span id="amountTo"></span>
         </div>
       </div>
       <button id="exchange">Exchange Value</button>
