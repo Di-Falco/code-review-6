@@ -9,26 +9,25 @@
       <h1>Exchange Rates</h1>
     </div>
     <div class="jumbotron">
-      <h2>Select a currency to exchange to from USD</h2>
+      <h2>Select currency options from below</h2>
+      <br>
       <div class="row justify-content-center">
         <div class="col-5">
-          <h3 id="currencyFromName">USD</h3>
-          <input type="number" id="amountFrom">
+          <h3 id="currencyFromName">Exchange From:</h3>
           <select type="form-control" id="currencyFrom">
-            <option value="">$ USD</option>
-            <option>￥ 円</option>
+            <option value="USD">USD $</option>
+            <option value="JPY">円 ￥</option>
           </select>
-        </div>
-        <div class="col-5">
-          <h3 id="currencyToName">Yen</h3>
+          <input type="number" id="amountFrom">
+          <h3 id="currencyToName">Exchange To:</h3>
           <!--<input type="number" id="amountTo">-->
-          <select type="form-control" id="currenctTo">
-            <option>$ USD</option>
-            <option>￥ 円</option>
+          <select type="form-control" id="currencyTo">
+            <option value="USD">USD $</option>
+            <option value="JPY">円 ￥</option>
           </select>
         </div>
       </div>
-      <button id="exchange"></button>
+      <button id="exchange">Exchange Value</button>
     </div>
   </div>
 </body>

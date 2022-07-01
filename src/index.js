@@ -6,12 +6,12 @@ import Bank from './bank.js';
 
 $(document).ready(function(){
 
-  $("#exchange").click(function(){
+  $("#exchange").click(async function(){
     let currencyFrom = $("#currencyFrom").val();
     let currencyTo = $("#currencyTo").val();
     let amount = parseInt($("#amountFrom").val());
 
-    console.log(Bank.getExchangeRate(currencyFrom, currencyTo, amount));
+    console.log(await Bank.getExchangeRate(currencyFrom, currencyTo, amount));
   });
 
 });
