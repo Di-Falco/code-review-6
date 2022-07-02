@@ -7,7 +7,6 @@ import Bank from './bank.js';
 // empty all necessary fields
 function clearFields() {
   $("#error").text("");
-  $("#amountTo").text("");
 }
 
 // check to see if a valid currency has been selected
