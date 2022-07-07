@@ -20,6 +20,9 @@ There are only a few allowed currencies to keep the program simple. additionally
 
 * clone this repository using<br>
 ```git clone https://github.com/Di-Falco/code-review-6```
+* Visit https://www.exchangerate-api.com/. You will be promted to enter your email to recieve an API key.
+* Create a .env in your root directory. The .env file should contain only your API key, formatted like so:<br>
+```API_KEY=[your api key here]```
 * run<br> 
 ```npm install```
 * run<br>
@@ -32,8 +35,6 @@ builds the webpage using webpack
 runs npm build and opens a dev server
  * ```npm run lint```<br>
 runs eslint
- * ```npm run test```<br>
-runs tests (none for this project)
 
 ## Known Bugs
 
